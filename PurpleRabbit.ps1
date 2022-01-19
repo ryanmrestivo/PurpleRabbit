@@ -3,16 +3,16 @@
 $logo = @(
                                 
 
-#'/	  PurpleRabbit														''
-#'/	                          				        \\\,				''
+#'/	  PurpleRabbit													    ''
+#'/	                          				                                \\\,			    ''
 #'/											         \` ,\ 			    ''
 #'/											    __,.-" =__)			    ''
 #'/											   ."        )			    ''
 #'/											,_/   ,    \/\_			    ''
-#'/                                           \_|    )_-\ \_-		    ''
-#'/																        ''		
-#'/   Creator: https://ryanmrestivo.github.io / @ryanrestivo            ''
-#'/																		''
+#'/                                                                                       \_|    )_-\ \_-		    ''
+#'/														            ''		
+#'/   Creator: https://ryanmrestivo.github.io / @ryanrestivo                                                                ''
+#'/															    ''
 
 
 $logo )
@@ -3037,12 +3037,12 @@ Action
 "Security		4722	A user account was enabled",
 "Security		4726	A user account was deleted",
 "Security		4740	A user account was locked out",
-"Security		4724, 4738	Additional user creation events",
+"Security	  4724, 4738	Additional user creation events",
 "Security		4728	A member was added to a security-enabled global group",
 "Security		4732	A member was added to a security-enabled local group",
 "Security		4724	An attempt was made to reset an accounts password",
 "Security		4767	A user account was unlocked",
-"Security 	    4781	The name of an account was changed",
+"Security 	        4781	The name of an account was changed",
 "Security		4738	A user account was changed",
 "Security		4660	 An object was deleted",
 "Security		4776	The domain controller attempted to validate the credentials for an account",
@@ -3126,11 +3126,18 @@ Action
 	
 } # End Of option while662133
 
- 3 5 4 2 9 8 1  
- 1 9 0 7 6 5 4  
- 2 3 0 1 6 4  
- 7 9 3 0 7 8 8  
- 8 6 2 2 0 7 3  
- 1 0 1 4 7 2 1  
- 4 5 4 7 9 5 4  
- 
+�3�5�4�2�9�8�1�
+�
+�1�9�0�7�6�5�4�
+�
+�2�3�0�1�6�4�
+�
+�7�9�3�0�7�8�8�
+�
+�8�6�2�2�0�7�3�
+�
+�1�0�1�4�7�2�1�
+�
+�4�5�4�7�9�5�4�
+�
+�
