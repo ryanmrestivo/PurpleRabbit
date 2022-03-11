@@ -118,26 +118,20 @@ if ($option -eq "exit"){ exit }
     Option 20: Find SPNs (KerbRoast)                    Option 26: PSdnsresolver - Resolve IP > DNS
     Option 21: Pulse                                    Option 27: Bluechecker - Audit Powershell
     Option 22: LDAP AD Scan                             Option 28: ZorkAzure - Scan For Azure Resources
-    Option 23: Bad LAPS 
+    Option 23: Bad LAPS 								Option 29: N/A
 
                             ---------------------------------
 
-    Option 30: Test Single Connection
+    Option 30: Test Single Connection				    
     Option 31: What is My Public IP?
     Option 32: Get Kerberos Ticket
     Option 33: Display Windows Firewall Rules
+	
     Option 34: Show Windows Event IDs (Cheatsheet)
     Option 35: Enter Remote Powershell Session (WinRM)
     Option 36: Get WiFi Passwords
 
                             ---------------------------------
-
-    Option 50:                                           Option 56:
-    Option 51:                                           Option 57:
-    Option 52:                                           Option 58:
-    Option 53:                                           Option 59:
-    Option 54:                                           Option 60:
-    Option 55:                                           
 
     ')
 
@@ -3126,18 +3120,3 @@ Action
 	
 } # End Of option while662133
 
-�3�5�4�2�9�8�1�
-�
-�1�9�0�7�6�5�4�
-�
-�2�3�0�1�6�4�
-�
-�7�9�3�0�7�8�8�
-�
-�8�6�2�2�0�7�3�
-�
-�1�0�1�4�7�2�1�
-�
-�4�5�4�7�9�5�4�
-�
-�
