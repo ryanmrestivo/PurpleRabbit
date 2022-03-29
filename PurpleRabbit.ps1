@@ -41,7 +41,6 @@ if ($sesh -eq "True"){
            }
 
 
-
 if ($d -eq "WORKGROUP"){
 
     $dom = "WORKGROUP" 
@@ -67,26 +66,19 @@ if ($d -eq "WORKGROUP"){
 
 }
 
-
 Write-Host " Current User: $u      |  Current Machine: $h"
 
 Write-Host " Session: " -NoNewline ; Write-Host "$sessionadmin " -ForegroundColor $tc -NoNewline ; Write-Host "  |  Domain Admin: " -NoNewline ; Write-Host "$dom" -ForegroundColor $dtc
 
 Write-Host ""
 
-
 while($true){ 
-
 
 $option = Read-Host -Prompt "[RedRabbit]:"
 
-
 if ($option -eq "exit"){ exit }
 
-
-
     if ($option -eq "h" -or $option -eq "help"){
-
 
     $help = ('
     
@@ -142,7 +134,6 @@ if ($option -eq "exit"){ exit }
 
     if ($option -eq "ch" -or $option -eq "cloud options"){
 
-
     $cloudhelp = ('
     
                      Please enter one of the following numbers
@@ -167,16 +158,13 @@ if ($option -eq "exit"){ exit }
 
 
     Option Az1: Pull Azure Keys
-    Option Az2: User Adminstrators (Self-Elevate)
-    
-                            
+    Option Az2: User Adminstrators (Self-Elevate)                      
                            
     ')
 
     $cloudhelp
 
     } # End Of Cloud Options
-
 
    
     if ($option -eq "1"){
@@ -188,14 +176,12 @@ if ($option -eq "exit"){ exit }
     $Publicip = (Invoke-WebRequest http://ipinfo.io/ip).content
     $org = (Get-CimInstance Win32_OperatingSystem).Organization
 
-
     Write-Output ""
 
     Write-Host " User: $user"
     Write-Host " Hostname: $currenthost"
     Write-Host " Public IP: " -NoNewline; Write-Host $Publicip
     write-host " Organization: $org"
-
 
     Write-Output ""
 
@@ -222,8 +208,7 @@ if ($option -eq "exit"){ exit }
     $networkinfo
 
     Write-Output ""
-
-        
+  
     $lad = @(Get-CimInstance win32_useraccount | Select-Object name,sid)
 
         foreach ($l in $lad){
@@ -249,11 +234,9 @@ if ($option -eq "exit"){ exit }
 
             Write-Host " Local Admin Found: " -NoNewline ; Write-Host $l.name -ForegroundColor Green -NoNewline ; Write-Host " | isDisabled: " -NoNewline ; Write-Host $ladstatus -ForegroundColor $c           
             
-            
           }
       
         }
-
 
         Write-Output ""
 
@@ -292,8 +275,6 @@ if ($option -eq "exit"){ exit }
             
                 }
 
-            
-
         Write-Output ""
 
         Write-Host " [*] Getting SMB Shares ... "
@@ -313,31 +294,22 @@ if ($option -eq "exit"){ exit }
 
         Write-Output ""
 
-
    } # End Option 1
 
-   
-    
     if ($option -eq "2"){
-    
     
     $subnet = (Get-NetRoute -DestinationPrefix 0.0.0.0/0).NextHop
     $manyips = $subnet.Length
 
-
     if($manyips -eq 2){
     
-        $subnet = (Get-NetRoute -DestinationPrefix 0.0.0.0/0).NextHop[1]
-        
+        $subnet = (Get-NetRoute -DestinationPrefix 0.0.0.0/0).NextHop[1]   
         
             }
-   
         
     $subnetrange = $subnet.Substring(0,$subnet.IndexOf('.') + 1 + $subnet.Substring($subnet.IndexOf('.') + 1).IndexOf('.') + 3)
 
     $isdot = $subnetrange.EndsWith('.')
-
-
 
     if ($isdot -like "False"){
     
@@ -345,7 +317,6 @@ if ($option -eq "exit"){ exit }
             
                 }
 
-    
     $iprange = @(1..254)
 
     Write-Output ""
@@ -355,23 +326,15 @@ if ($option -eq "exit"){ exit }
 
     Write-Output ""
 
-    
-
-
-
-
     foreach ($i in $iprange){
-
 
     $currentip = $subnetrange + $i
 
     $islive = test-connection $currentip -Quiet -Count 1
 
-
         if ($islive -eq "True"){
 
             try{$dnstest = (Resolve-DnsName $currentip -ErrorAction SilentlyContinue).NameHost}catch{}
-
 
                 if ($dnstest -like "*.home") {
 
@@ -382,7 +345,6 @@ if ($option -eq "exit"){ exit }
     Write-Output ""
 
     Write-Host " Host is Reachable: " -NoNewline  ; Write-Host $currentIP -ForegroundColor Green -NoNewline ; Write-Host "  |   DNS: $dnstest"
-
 
     $portstoscan = @(20,21,22,23,25,50,51,53,80,110,119,135,136,137,138,139,143,161,162,389,443,445,636,1025,1443,3389,5985,5986,8080,10000)
     $waittime = 100
@@ -398,7 +360,6 @@ if ($option -eq "exit"){ exit }
                     Write-Host " Port Open: " -NoNewline  ; Write-Host $p -ForegroundColor Green
     
                     }
-
             }
 
             Write-Output ""
@@ -413,14 +374,10 @@ if ($option -eq "exit"){ exit }
     
     } # End of option 2
 
-
-
     if ($option -eq "3"){
-
 
     $listsmb = @()
     
-
     $lops = @('
     
       List Of Options:
@@ -428,8 +385,7 @@ if ($option -eq "exit"){ exit }
         1: Single Host
         2: Current Subnet
         3: Multiple Hosts (Requires txt file)
-    
-    
+
     ')
 
     $lops
@@ -443,8 +399,6 @@ if ($option -eq "exit"){ exit }
         $sh = Read-Host -Prompt " [Single Host]:"
 
         Write-Output ""
-
-
 
         try { 
                 $TCPObject = new-Object system.Net.Sockets.TcpClient
@@ -465,12 +419,7 @@ if ($option -eq "exit"){ exit }
 
                         
                                 }
-
-
-
-        
     }
-
 
     if ($op -eq "2"){
 
@@ -478,20 +427,15 @@ if ($option -eq "exit"){ exit }
         $subnet = (Get-NetRoute -DestinationPrefix 0.0.0.0/0).NextHop
         $manyips = $subnet.Length
 
-
     if($manyips -eq 2){
     
         $subnet = (Get-NetRoute -DestinationPrefix 0.0.0.0/0).NextHop[1]
         
-        
             }
    
-        
         $subnetrange = $subnet.Substring(0,$subnet.IndexOf('.') + 1 + $subnet.Substring($subnet.IndexOf('.') + 1).IndexOf('.') + 3)
 
         $isdot = $subnetrange.EndsWith('.')
-
-
 
     if ($isdot -like "False"){
     
@@ -502,10 +446,8 @@ if ($option -eq "exit"){ exit }
     Write-Host " [*] Getting Subnet ..."
 
     Write-Host " [*] Subnet: " -NoNewline ; Write-Host $subnetrange -NoNewline ; Write-Host "0/24"
-
     
     $iprange = @(1..254)
-
         
     Write-Host " [*] Scanning For Live Hosts.... "   
     
@@ -513,22 +455,18 @@ if ($option -eq "exit"){ exit }
 
     foreach ($lip in $iprange){
         
-        $cip = $subnetrange + $lip
-        
-        
-        
+        $cip = $subnetrange + $lip       
+               
             try { 
 
                 $TCPObject = new-Object system.Net.Sockets.TcpClient
-                $result = $TCPObject.ConnectAsync($cip,445).Wait(100)
-                
+                $result = $TCPObject.ConnectAsync($cip,445).Wait(100)               
                 
                } catch { }
 
                 
                 if ($result -eq "True"){
-
-                                      
+                                     
                     Write-Host " SMB Host Found: " -NoNewline ; Write-Host $cip -NoNewline -ForegroundColor Green ; Write-Host " Adding To List....."
                     $listsmb += $cip
     
@@ -536,24 +474,15 @@ if ($option -eq "exit"){ exit }
 
             }
 
-
-        
-              
-
         }
 
-    
-
     if ($op -eq "3"){
-    
-    
+      
     $tf = Read-Host -Prompt " [File Location]:"
 
     Write-Output ""
 
-
     $tp = Test-Path -Path $tf
-
 
         if ($tp -eq "True" -and $tf.EndsWith(".txt")){
     
@@ -565,18 +494,13 @@ if ($option -eq "exit"){ exit }
 
         Write-Output ""
 
-    
         foreach ($tip in $tcon){
-        
-                
-        
+              
             try { 
             
-                $result = $TCPObject.ConnectAsync($tip,445).Wait(100)
-                
+                $result = $TCPObject.ConnectAsync($tip,445).Wait(100)             
                 
                 } catch { }
-
 
                 if ($result -eq "True"){
                     
@@ -589,8 +513,6 @@ if ($option -eq "exit"){ exit }
                         
                          }
 
-       
-
             }
 
   
@@ -600,10 +522,7 @@ if ($option -eq "exit"){ exit }
          
                 Write-Host " File Not Found... Exiting " -ForegroundColor Red
          
-                }
-    
-    
-    
+                } 
     }
 
 
@@ -3118,5 +3037,4 @@ Action
 	
 	
 	
-} # End Of option while662133
-
+} # End Of option 
