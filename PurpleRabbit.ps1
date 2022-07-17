@@ -40,7 +40,6 @@ if ($sesh -eq "True"){
 
            }
 
-
 if ($d -eq "WORKGROUP"){
 
     $dom = "WORKGROUP" 
